@@ -32,9 +32,10 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     if (last_claim >= 12) {
       const success = await transferToken(accountAddress, 1);
       console.log({ success });
-      const data = await redis.set(accountAddress, Date.now());
 
       if (success) {
+        const data = await redis.set(accountAddress, Date.now());
+
         return new NextResponse(
           getFrameHtmlResponse({
             buttons: [
