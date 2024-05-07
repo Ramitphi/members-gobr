@@ -30,7 +30,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     console.log(last_claim);
 
     if (last_claim >= 12) {
-      const success = await transferToken(accountAddress, 1);
+      const success = await transferToken(accountAddress, randomAmount);
       console.log({ success });
 
       if (success) {
