@@ -7,7 +7,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { transferToken } from "../../utils/transfer";
 import { Redis } from "@upstash/redis";
 
-const NEXT_PUBLIC_URL = "https://873f-103-59-75-168.ngrok-free.app";
+const NEXT_PUBLIC_URL = "https://members-gobr.vercel.app";
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   let accountAddress: string | undefined = "";
