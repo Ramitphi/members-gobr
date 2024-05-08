@@ -9,7 +9,7 @@ const getAddress = async (fid: string) => {
   };
 
   const { data } = await axios.get(
-    "https://api.neynar.com/v2/farcaster/user/bulk?fids=2391",
+    `https://api.neynar.com/v2/farcaster/user/bulk?fids=${fid}`,
     options
   );
   console.log({ g: data.users[0].verifications[0] });
