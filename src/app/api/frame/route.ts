@@ -3,38 +3,44 @@ import {
   getFrameMessage,
   getFrameHtmlResponse,
 } from "@coinbase/onchainkit";
+import { init, validateFramesMessage } from "@airstack/frames";
+
 import { NextRequest, NextResponse } from "next/server";
 import { transferToken } from "../../utils/transfer";
 import { Redis } from "@upstash/redis";
+import getAddress from "../../utils/getAddress";
 
 const NEXT_PUBLIC_URL = "https://members-gobr.vercel.app";
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
+  init("1108ca72f6a414da788a0bd485866ca62");
   let accountAddress: string | undefined = "";
   const body: FrameRequest = await req.json();
-  const { isValid, message } = await getFrameMessage(body, {
-    neynarApiKey: "9269D1DF-9073-4D62-96AD-E8AA03CD9C12",
-  });
+
+  const { isValid, message } = await validateFramesMessage(body);
   const redis = new Redis({
     url: "https://needed-jaguar-51926.upstash.io",
     token: "AcrWAAIncDFkMTVmMTE5OWRjOWY0Y2FkYjA2Y2U5N2VhNzNhNmVlMHAxNTE5MjY",
   });
 
+  console.log({ gg: message?.data.fid });
+
+  const add = await getAddress(`${message?.data.fid}` || " ");
   if (isValid) {
-    accountAddress = message.interactor.verified_accounts[0];
+    accountAddress = add;
     const randomAmount = Math.random() * 69;
 
-    const past_date = await redis.get(accountAddress);
+    const past_date = await redis.get(accountAddress || "");
     console.log(past_date);
     const last_claim = (Date.now() - Number(past_date)) / 1000 / (60 * 60);
     console.log(last_claim);
 
     if (last_claim >= 12) {
-      const success = await transferToken(accountAddress, randomAmount);
+      const success = await transferToken(accountAddress || "", randomAmount);
       console.log({ success });
 
       if (success) {
-        const data = await redis.set(accountAddress, Date.now());
+        const data = await redis.set(accountAddress || "", Date.now());
 
         return new NextResponse(
           getFrameHtmlResponse({
