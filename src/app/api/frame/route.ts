@@ -48,6 +48,12 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
               {
                 label: `You recived ${randomAmount} $Member`,
               },
+              {
+                label: "Share as cast",
+                action: "link",
+                target:
+                  "https://warpcast.com/~/compose?embeds[]=https://members-gobr.vercel.app/",
+              },
             ],
             image: `${NEXT_PUBLIC_URL}/members_success.png`,
             post_url: `${NEXT_PUBLIC_URL}/api/frame`,
