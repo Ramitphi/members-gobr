@@ -52,7 +52,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
                 label: "Share as cast",
                 action: "link",
                 target:
-                  "https://warpcast.com/~/compose?embeds[]=https://members-gobr.vercel.app/",
+                  "https://warpcast.com/~/compose?text=Claim%20$Member&embeds[]=https://members-gobr.vercel.app/",
               },
             ],
             image: `${NEXT_PUBLIC_URL}/members_success.png`,
