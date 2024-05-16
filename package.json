@@ -21,14 +21,22 @@
     "viem": "^2.10.1"
   },
   "devDependencies": {
+    "@eslint/js": "^9.2.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
     "eslint": "^9.2.0",
     "eslint-config-next": "14.1.0",
+    "eslint-plugin-react": "^7.34.1",
+    "globals": "^15.1.0",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5"
-  }
+    "typescript": "^5",
+    "typescript-eslint": "^7.8.0"
+  },
+  "main": "index.js",
+  "repository": "git@github.com:Ramitphi/members-gobr.git",
+  "author": "Ramitphi <18ucs144@lnmiit.ac.in>",
+  "license": "MIT"
 }

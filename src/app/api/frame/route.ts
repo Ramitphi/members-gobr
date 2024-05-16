@@ -28,7 +28,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const add = await getAddress(`${message?.data.fid}` || " ");
   if (isValid) {
     accountAddress = add;
-    const randomAmount = Math.random() * 69;
+    const randomAmount = Math.random() * 6.9;
 
     const past_date = await redis.get(accountAddress || "");
     console.log(past_date);
