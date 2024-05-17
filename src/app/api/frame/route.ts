@@ -28,8 +28,10 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const add = await getAddress(`${message?.data.fid}` || " ");
   if (isValid) {
     accountAddress = add;
-    const randomAmount = Math.random() * 6.9;
-
+    let randomAmount = Math.floor(Math.random() * 6.9);
+    if (randomAmount === 0) {
+      randomAmount++;
+    }
     const past_date = await redis.get(accountAddress || "");
     console.log(past_date);
     const last_claim = (Date.now() - Number(past_date)) / 1000 / (60 * 60);
