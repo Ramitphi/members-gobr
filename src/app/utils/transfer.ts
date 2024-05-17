@@ -24,7 +24,6 @@ export const transferToken = async (
   });
 
   const PRIVATE_KEY = process.env.PRIVATE_KEY as Address;
-
   const account = privateKeyToAccount(PRIVATE_KEY);
 
   const walletClient = createWalletClient({
@@ -38,7 +37,7 @@ export const transferToken = async (
   try {
     const { request } = await walletClient.simulateContract({
       account,
-      address: "0x7d89E05c0B93B24B5Cb23A073E60D008FEd1aCF9",
+      address: "0xBa5B9B2D2d06a9021EB3190ea5Fb0e02160839A4",
       abi: abi,
       functionName: "transfer",
       args: [recipient_address, parseEther(`${amount}`)],

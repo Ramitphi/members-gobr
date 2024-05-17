@@ -2,7 +2,7 @@ import {
   FrameRequest,
   getFrameMessage,
   getFrameHtmlResponse,
-} from "@coinbase/onchainkit";
+} from "@coinbase/onchainkit/frame";
 import { init, validateFramesMessage } from "@airstack/frames";
 
 import { NextRequest, NextResponse } from "next/server";
@@ -10,7 +10,7 @@ import { transferToken } from "../../utils/transfer";
 import { Redis } from "@upstash/redis";
 import getAddress from "../../utils/getAddress";
 
-const NEXT_PUBLIC_URL = "https://members-gobr.vercel.app";
+const NEXT_PUBLIC_URL = "https://55b7-103-59-75-29.ngrok-free.app";
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   init("1108ca72f6a414da788a0bd485866ca62");
@@ -35,7 +35,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     const last_claim = (Date.now() - Number(past_date)) / 1000 / (60 * 60);
     console.log(last_claim);
 
-    if (last_claim >= 12) {
+    if (last_claim <= 12) {
       const success = await transferToken(accountAddress || "", randomAmount);
       console.log({ success });
 
@@ -46,16 +46,15 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
           getFrameHtmlResponse({
             buttons: [
               {
-                label: `You recived ${randomAmount} $Member`,
+                label: `You recived ${randomAmount} $Sendit`,
               },
               {
                 label: "Share as cast",
                 action: "link",
-                target:
-                  "https://warpcast.com/~/compose?text=Claim%20$Member&embeds[]=https://members-gobr.vercel.app/",
+                target: `https://warpcast.com/~/compose?text=I just received ${randomAmount} /sendit claim yours here:&embeds[]=https://55b7-103-59-75-29.ngrok-free.app`,
               },
             ],
-            image: `${NEXT_PUBLIC_URL}/members_success.png`,
+            image: `${NEXT_PUBLIC_URL}/sendit_success.png`,
             post_url: `${NEXT_PUBLIC_URL}/api/frame`,
           })
         );
@@ -67,7 +66,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
               label: `Try Again`,
             },
           ],
-          image: `${NEXT_PUBLIC_URL}/members.png`,
+          image: `${NEXT_PUBLIC_URL}/sendit_success.png`,
+
           post_url: `${NEXT_PUBLIC_URL}/api/frame`,
         })
       );
@@ -79,7 +79,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
               label: `Try again in ${Math.floor(12 - last_claim)} Hours`,
             },
           ],
-          image: `${NEXT_PUBLIC_URL}/members.png`,
+          image: `${NEXT_PUBLIC_URL}/sendit.png`,
           post_url: `${NEXT_PUBLIC_URL}/api/frame`,
         })
       );
