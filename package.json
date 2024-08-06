@@ -36,9 +36,6 @@
     "typescript": "^5.5.4",
     "typescript-eslint": "^7.18.0"
   },
-  "resolutions": {
-    "react-countup/countup.js": "2.5.0"
-  },
   "main": "index.js",
   "repository": "git@github.com:Ramitphi/members-gobr.git",
   "author": "Ramitphi <18ucs144@lnmiit.ac.in>",
