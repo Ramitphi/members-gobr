@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@airstack/frames": "^1.1.12",
-    "@coinbase/onchainkit": "^0.27.1",
+    "@coinbase/onchainkit": "0.15.0",
     "@farcaster/core": "^0.14.20",
     "@upstash/redis": "^1.34.0",
     "axios": "^1.7.3",
