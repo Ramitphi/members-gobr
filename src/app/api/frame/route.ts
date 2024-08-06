@@ -1,10 +1,8 @@
-"use client";
-
 import {
   FrameRequest,
   getFrameMessage,
   getFrameHtmlResponse,
-} from "@coinbase/onchainkit";
+} from "@coinbase/onchainkit/frame";
 import { init, validateFramesMessage } from "@airstack/frames";
 
 import { NextRequest, NextResponse } from "next/server";
@@ -12,7 +10,7 @@ import { transferToken } from "../../utils/transfer";
 import { Redis } from "@upstash/redis";
 import getAddress from "../../utils/getAddress";
 
-const NEXT_PUBLIC_URL = "https://members-gobr.vercel.app";
+const NEXT_PUBLIC_URL = "https://ffab-103-59-75-116.ngrok-free.app";
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   init("1108ca72f6a414da788a0bd485866ca62");
@@ -30,7 +28,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const add = await getAddress(`${message?.data.fid}` || " ");
   if (isValid) {
     accountAddress = add;
-    const randomAmount = Math.random() * 6.9;
+    const randomAmount = Math.random() * 69;
 
     const past_date = await redis.get(accountAddress || "");
     console.log(past_date);

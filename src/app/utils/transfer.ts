@@ -25,7 +25,7 @@ export const transferToken = async (
 
   const PRIVATE_KEY = process.env.PRIVATE_KEY as Address;
 
-  const account = privateKeyToAccount(PRIVATE_KEY);
+  const account = privateKeyToAccount(`0x${PRIVATE_KEY}`);
 
   const walletClient = createWalletClient({
     account,
