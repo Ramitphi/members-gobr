@@ -6,7 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint \"**/*.{js,cjs,ts,mjs,jsx,tsx}\"",
+    "postlint": "template-oss-check",
+    "template-oss-apply": "template-oss-apply --force",
+    "lintfix": "npm run lint -- --fix",
+    "snap": "tap",
+    "test": "tap",
+    "posttest": "npm run lint"
   },
   "dependencies": {
     "@airstack/frames": "^1.1.12",
@@ -36,7 +42,24 @@
     "typescript-eslint": "^7.18.0"
   },
   "main": "index.js",
-  "repository": "git@github.com:Ramitphi/members-gobr.git",
-  "author": "Ramitphi <18ucs144@lnmiit.ac.in>",
-  "license": "MIT"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ramitphi/members-gobr.git"
+  },
+  "author": "GitHub Inc.",
+  "license": "MIT",
+  "files": [
+    "bin/",
+    "lib/"
+  ],
+  "templateOSS": {
+    "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
+    "version": "4.21.4"
+  },
+  "tap": {
+    "nyc-arg": [
+      "--exclude",
+      "tap-snapshots/**"
+    ]
+  }
 }

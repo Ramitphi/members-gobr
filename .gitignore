@@ -1,36 +1,32 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# This file is automatically added by @npmcli/template-oss. Do not edit.
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-.yarn/install-state.gz
+# ignore everything in the root
+/*
+# transient test directories
+tap-testdir*/
 
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# local env files
-/.env
-
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# keep these
+!**/.gitignore
+!/.commitlintrc.js
+!/.eslintrc.js
+!/.eslintrc.local.*
+!/.github/
+!/.gitignore
+!/.npmrc
+!/.release-please-manifest.json
+!/bin/
+!/CHANGELOG*
+!/CODE_OF_CONDUCT.md
+!/CONTRIBUTING.md
+!/docs/
+!/lib/
+!/LICENSE*
+!/map.js
+!/package.json
+!/README*
+!/release-please-config.json
+!/scripts/
+!/SECURITY.md
+!/tap-snapshots/
+!/test/
+!/tsconfig.json
