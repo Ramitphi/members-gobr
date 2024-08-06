@@ -4,7 +4,7 @@ const getAddress = async (fid: string) => {
   const options = {
     headers: {
       accept: "application/json",
-      api_key: "9269D1DF-9073-4D62-96AD-E8AA03CD9C12",
+      api_key: "4F532532-1BE6-4A5C-9C83-C6B793F4FA02",
     },
   };
 
