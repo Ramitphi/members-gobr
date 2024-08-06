@@ -1,7 +1,7 @@
 import { FrameMetadata } from "@coinbase/onchainkit/frame";
 const NEXT_PUBLIC_URL = "https://ffab-103-59-75-116.ngrok-free.app";
 
-// export const metadata: Metadata = {
+// export const metadata: Metadase clientta = {
 //   title: "ramit.xyz",
 //   description: "LFG",
 //   openGraph: {

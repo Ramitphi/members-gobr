@@ -1,8 +1,4 @@
-import {
-  FrameRequest,
-  getFrameMessage,
-  getFrameHtmlResponse,
-} from "@coinbase/onchainkit/frame";
+import { FrameRequest, getFrameHtmlResponse } from "@coinbase/onchainkit/frame";
 import { init, validateFramesMessage } from "@airstack/frames";
 
 import { NextRequest, NextResponse } from "next/server";
